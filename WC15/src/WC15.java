@@ -111,14 +111,14 @@ public class WC15
    */
   public static void swapRows(int[][] mat, int rowAIndex, int rowBIndex)
   {
-    int [] arr = mat[rowAIndex];
+    int[] arr = mat[rowAIndex];
     mat[rowAIndex] = mat[rowBIndex];
     mat[rowBIndex] = arr;
   }
 
   /**
-   * Swaps all values in the specified 2 columns of mat.
-   * fortnite
+   * Swaps all values in the specified 2 columns of mat. fortnite
+   * 
    * @param mat
    *          the array
    * @param colAIndex
@@ -128,22 +128,30 @@ public class WC15
    */
   public static void swapColumns(int[][] mat, int colAIndex, int colBIndex)
   {
-    int [] tempArr = new int [mat.length];
+    int index = 0;
+    int[] tempArr = new int[mat.length * mat[0].length];
     
-    
-      for (int r = 0; r < mat.length; r++)
+    for (int r = 0; r < mat.length; r++)
+    {
+      for (int c = 0; c < mat.length; c++)
+      {
+        tempArr[index] = mat[r][c];
+      }
+    }
+
+    for (int r = 0; r < mat.length; r++)
     {
       tempArr[r] = mat[r][colAIndex];
     }
-      for (int i = 0; i < mat.length; i++)
+    for (int i = 0; i < mat.length; i++)
     {
       mat[i][colAIndex] = mat[i][colBIndex];
     }
-      for (int i = 0; i < mat.length; i++)
+    for (int i = 0; i < mat.length; i++)
     {
       mat[colBIndex][i] = tempArr[i];
     }
-    
+
   }
 
   /**
@@ -163,8 +171,8 @@ public class WC15
   public static String[][] fill2DWithLetters(String str, int rows, int cols)
   {
     int stringCount = 0;
-    String [][] answer = new String [rows][cols];
-    
+    String[][] answer = new String[rows][cols];
+
     for (int r = 0; r < rows; r++)
     {
       for (int c = 0; c < cols; c++)
@@ -174,10 +182,9 @@ public class WC15
         {
           stringCount++;
         }
-        
+
       }
     }
-    
 
     return answer;
   }
@@ -211,7 +218,7 @@ public class WC15
    */
   public static int[][] fillDownAndUp(int[] vals, int rows, int cols)
   {
-    // TODO: Finish
+    
     return new int[][] {{42}};
   }
 
