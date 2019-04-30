@@ -128,17 +128,8 @@ public class WC15
    */
   public static void swapColumns(int[][] mat, int colAIndex, int colBIndex)
   {
-    int index = 0;
-    int[] tempArr = new int[mat.length * mat[0].length];
+    int [] tempArr = new int [mat.length];
     
-    for (int r = 0; r < mat.length; r++)
-    {
-      for (int c = 0; c < mat.length; c++)
-      {
-        tempArr[index] = mat[r][c];
-      }
-    }
-
     for (int r = 0; r < mat.length; r++)
     {
       tempArr[r] = mat[r][colAIndex];
@@ -254,8 +245,20 @@ public class WC15
   public static int[][] crop2D(int[][] mat, int startRow, int startCol,
     int endRow, int endCol)
   {
-    // TODO: Finish
-    return new int[][] {{42}};
+    int row = 0;
+    int[][] arr = new int[endRow -  startRow + 1][endCol - startCol + 1];  
+    
+    for (int r = startRow; r < endRow; r++)
+    {
+      for (int c = startCol; c < endCol; c++)
+      {
+        
+      }
+    }
+    
+    return arr;
+    
+    
   }
 
 }
