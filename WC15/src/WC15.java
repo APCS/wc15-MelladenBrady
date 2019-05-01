@@ -128,19 +128,19 @@ public class WC15
    */
   public static void swapColumns(int[][] mat, int colAIndex, int colBIndex)
   {
-    int [] tempArr = new int [mat.length];
-    
+    int[] tempArr = new int[mat[0].length];
+
     for (int r = 0; r < mat.length; r++)
     {
       tempArr[r] = mat[r][colAIndex];
     }
-    for (int i = 0; i < mat.length; i++)
+    for (int r = 0; r < mat.length; r++)
     {
-      mat[i][colAIndex] = mat[i][colBIndex];
+      mat[r][colAIndex] = mat[r][colBIndex];
     }
-    for (int i = 0; i < mat.length; i++)
+    for (int r = 0; r < mat.length; r++)
     {
-      mat[colBIndex][i] = tempArr[i];
+      mat[r][colBIndex] = tempArr[r];
     }
 
   }
@@ -168,12 +168,14 @@ public class WC15
     {
       for (int c = 0; c < cols; c++)
       {
-        answer[r][c] = str.substring(stringCount, stringCount + 1);
-        if (stringCount == str.length())
+        if (stringCount >= str.length())
         {
-          stringCount++;
         }
-
+        else
+        {
+          answer[r][c] = str.substring(stringCount, stringCount + 1);
+        }
+        stringCount++;
       }
     }
 
@@ -209,8 +211,33 @@ public class WC15
    */
   public static int[][] fillDownAndUp(int[] vals, int rows, int cols)
   {
-    
-    return new int[][] {{42}};
+    int val = 0;
+    int[][] arr = new int[rows][cols];
+    boolean pass = false;
+
+    for (int c = 0; c < cols; c++)
+    {
+      if (pass == false)
+      {
+        for (int r = 0; r < rows; r++)
+        {
+          arr[r][c] = vals[val];
+          val++;
+
+        }
+        pass = true;
+      }
+      else
+      {
+        for (int r = rows - 1; r >= 0; r--)
+        {
+          arr[r][c] = vals[val];
+          val++;
+        }
+        pass = false;
+      }
+    }
+    return arr;
   }
 
   /**
@@ -246,19 +273,22 @@ public class WC15
     int endRow, int endCol)
   {
     int row = 0;
-    int[][] arr = new int[endRow -  startRow + 1][endCol - startCol + 1];  
-    
-    for (int r = startRow; r < endRow; r++)
+    int col = 0;
+    int[][] arr = new int[endRow - startRow + 1][endCol - startCol + 1];
+
+    for (int r = startRow; r <= endRow; r++)
     {
-      for (int c = startCol; c < endCol; c++)
+      col = 0;
+      for (int c = startCol; c <= endCol; c++)
       {
-        
+        arr[row][col] = mat[r][c];
+        col++;
       }
+      row++;
     }
-    
+
     return arr;
-    
-    
+
   }
 
 }
